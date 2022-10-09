@@ -1,0 +1,69 @@
+﻿@using MyStore.Application.Services.Fainances.Queries.GetRequestPayForAdmin;
+@model List<RequestPayDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Adminlayout.cshtml";
+}
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <!-- Zero configuration table -->
+            <section id="configuration">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title-wrap bar-success">
+                                    <h4 class="card-title">فاکتور ها</h4>
+                                </div>
+                            </div>
+                            <div class="card-body collapse show">
+                                <div class="card-block card-dashboard">
+                                    <p class="card-text">لیست فاکتورهای فروشگاه مای استور</p>
+
+                                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                                        <div class="col-sm-12">
+                                            <table class="table table-striped table-bordered zero-configuration dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="  activate to sort column descending" style="width: 222px;"> شماره فاکتور</th>
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="  activate to sort column descending" style="width: 222px;"> مبلغ</th>
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="  activate to sort column descending" style="width: 222px;"> کاربر</th>
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="  activate to sort column descending" style="width: 222px;"> پرداخت شده؟</th>
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="  activate to sort column descending" style="width: 222px;"> تاریخ پرداخت</th>
+                                                     </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    @foreach (var item in Model)
+                                                    {
+                                                     <tr role="row" class="odd">
+                                                        <td class="sorting_1">@item.Id</td>
+                                                        <td>@item.Amount.ToString("n0")</td>
+                                                        <td>@item.UserName</td>
+                                                        @if (item.IsPay == true)
+                                                        {
+                                                            <td>موفق</td>
+                                                        }
+                                                        else
+                                                        { 
+                                                            <td>ناموفق</td>
+                                                        }
+                                                        <td>@item.PayDate</td>
+                                                    </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+

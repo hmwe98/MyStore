@@ -1,0 +1,268 @@
+﻿@using EndPoint.Site.Utilities;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<!-- Mirrored from pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/demo-1/grids.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Sep 2018 14:54:38 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Convex admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Convex admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>پنل مدیریتی</title>
+    <link rel="apple-touch-icon" sizes="60x60" href="~/AdminTemplate/app-assets/img/ico/apple-icon-60.html">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/AdminTemplate/app-assets/img/ico/apple-icon-76.html">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/AdminTemplate/app-assets/img/ico/apple-icon-120.html">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/AdminTemplate/app-assets/img/ico/apple-icon-152.html">
+    <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/app-assets/img/ico/favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="~/AdminTemplate/app-assets/img/ico/favicon-32.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/AdminTemplate/app-assets/fonts/feather/style.min.css">
+    <link rel="stylesheet" type="text/css" href="~/AdminTemplate/app-assets/fonts/simple-line-icons/style.css">
+    <link rel="stylesheet" type="text/css" href="~/AdminTemplate/app-assets/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/AdminTemplate/app-assets/vendors/css/perfect-scrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="~/AdminTemplate/app-assets/vendors/css/prism.min.css">
+    <link rel="stylesheet" type="text/css" href="~/AdminTemplate/app-assets/css/app.css">
+</head>
+<body data-col="2-columns" class=" 2-columns ">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+
+
+        <div data-active-color="white" data-background-color="black" data-image="~/AdminTemplate/app-assets/img/sidebar-bg/01.jpg" class="app-sidebar">
+            <div class="sidebar-header">
+                <div class="logo clearfix">
+                    <a href="index-2.html" class="logo-text float-right">
+                        <div class="logo-img"><img src="~/AdminTemplate/app-assets/img/logo.png" alt="Convex Logo" /></div><span class="text align-middle">CONVEX</span>
+                    </a><a id="sidebarToggle" href="javascript:;" class="nav-toggle d-none d-sm-none d-md-none d-lg-block"><i data-toggle="expanded" class="ft-disc toggle-icon"></i></a><a id="sidebarClose" href="javascript:;" class="nav-close d-block d-md-block d-lg-none d-xl-none"><i class="ft-circle"></i></a>
+                </div>
+            </div>
+            <div class="sidebar-content">
+                <div class="nav-container">
+                    <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+
+                        <li class="has-sub nav-item">
+                            <a href="#"><i class="icon-users"></i><span data-i18n="" class="menu-title">مای استور</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a href="/" class="menu-item">صفحه اصلی</a>
+                                </li>
+                                <li>
+                                    <a href="~/products/index" class="menu-item">صفحه محصولات</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                        <li class="has-sub nav-item">
+                            <a href="#"><i class="icon-users"></i><span data-i18n="" class="menu-title">مدیریت کاربران</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a href="~/admin/users/index" class="menu-item">لیست کاربران</a>
+                                </li>
+                                <li>
+                                    <a href="~/admin/users/Create" class="menu-item">ثبت نام کاربر جدید *</a>
+                                </li>
+                            </ul>
+                        </li>
+                        }
+
+
+                        <li class="has-sub nav-item">
+                            <a href="#"><i class="icon-crop"></i><span data-i18n="" class="menu-title"> محصولات </span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a href="~/admin/products/" class="menu-item">لیست محصولات</a>
+                                </li>
+                                <li>
+                                    <a href="~/admin/products/addnewproduct" class="menu-item">افزودن محصول جدید *</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="has-sub nav-item">
+                            <a href="#"><i class="icon-users"></i><span data-i18n="" class="menu-title">مدیریت سفارشات</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a href="~/admin/orders/index?orderState=Processing" class="menu-item">در حال پردازش</a>
+                                </li>
+                                <li>
+                                    <a href="~/admin/orders/index?orderState=Delivered" class="menu-item">تحویل شده ها </a>
+                                </li>
+                                <li>
+                                    <a href="~/admin/orders/index?orderState=Canceled" class="menu-item"> لغو شده</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+                        <li class="has-sub nav-item">
+                            <a href="#"><i class="icon-crop"></i><span data-i18n="" class="menu-title"> مدیریت فاکتورها </span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a href="~/admin/RequestPay/" class="menu-item">لیست  </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="has-sub nav-item">
+                            <a href="#"><i class="icon-crop"></i><span data-i18n="" class="menu-title">  دسته بندی ها </span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a href="~/admin/categories/" class="menu-item">دسته بندی ها</a>
+                                </li>
+                                <li>
+                                    <a href="~/admin/categories/addnewcategory" class="menu-item">افزودن دسته بندی جدید *</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="has-sub nav-item">
+                            <a href="#"><i class="icon-users"></i><span data-i18n="" class="menu-title"> صفحه اصلی</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a href="~/admin/homepageimages/add" class="menu-item">افزودن عکس جدید</a>
+                                </li>
+                                <li>
+                                    <a href="~/admin/sliders/add" class="menu-item">افزودن اسلاید جدید</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar-background"></div>
+        </div>
+
+
+
+        <div class="main-panel">
+            <div class="main-content">
+                @RenderBody()
+            </div>
+
+
+
+        </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+
+    <div class="customizer border-left-blue-grey border-left-lighten-4 d-none d-sm-none d-md-block">
+        <a class="customizer-close"><i class="ft-x font-medium-3"></i></a><a id="customizer-toggle-icon" class="customizer-toggle bg-danger"><i class="ft-settings font-medium-4 fa fa-spin white align-middle"></i></a>
+        <div data-ps-id="df6a5ce4-a175-9172-4402-dabd98fc9c0a" class="customizer-content p-3 ps-container ps-theme-dark">
+            <h4 class="mb-0 text-bold-400">تم سفارشی</h4>
+            <p>سفارشی کردن و پیش نمایش در زمان واقعی</p>
+            <hr>
+            <h6 class="text-center text-bold-500 mb-3 text-uppercase">تصویر پس زمینه نوار کناری</h6>
+            <div class="cz-bg-image row">
+                <div class="col mb-3"><img src="~/AdminTemplate/app-assets/img/sidebar-bg/01.jpg" width="50" height="100" alt="Bg image1" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/AdminTemplate/app-assets/img/sidebar-bg/02.jpg" width="50" height="100" alt="Bg image2" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/AdminTemplate/app-assets/img/sidebar-bg/03.jpg" width="50" height="100" alt="Bg image3" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/AdminTemplate/app-assets/img/sidebar-bg/04.jpg" width="50" height="100" alt="Bg image4" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/AdminTemplate/app-assets/img/sidebar-bg/05.jpg" width="50" height="100" alt="Bg image5" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/AdminTemplate/app-assets/img/sidebar-bg/06.jpg" width="50" height="100" alt="Bg image6" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/AdminTemplate/app-assets/img/sidebar-bg/07.jpg" width="50" height="100" alt="Bg image7" class="rounded box-shadow-2"></div>
+                <div class="col mb-3"><img src="~/AdminTemplate/app-assets/img/sidebar-bg/08.jpg" width="50" height="100" alt="Bg image8" class="rounded box-shadow-2"></div>
+            </div>
+            <hr>
+            <div class="togglebutton">
+                <div class="switch">
+                    <span class="text-bold-400">نمایش / عدم نمایش نوار کناری پس زمینه تصویر</span>
+                    <div class="float-left">
+                        <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                            <input id="sidebar-bg-img" type="checkbox" checked="" class="custom-control-input cz-bg-image-display">
+                            <label for="sidebar-bg-img" class="custom-control-label"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h6 class="text-center text-bold-500 mb-3 text-uppercase">گزینه های رنگ نوار کناری</h6>
+            <div class="cz-bg-color">
+                <div class="row p-1">
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="aqua-marine" class="gradient-aqua-marine d-block rounded box-shadow-2"></span></div>
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="sublime-vivid" class="gradient-sublime-vivid d-block rounded box-shadow-2"></span></div>
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="crystal-clear" class="gradient-crystal-clear d-block rounded box-shadow-2"></span></div>
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="timber" class="gradient-timber d-block rounded box-shadow-2"></span></div>
+                </div>
+                <div class="row p-1">
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="black" class="bg-black d-block rounded box-shadow-2"></span></div>
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="primary" class="bg-primary d-block rounded box-shadow-2"></span></div>
+                    <div class="col mb-3"><span style="width:50px; height:100px;" data-bg-color="danger" class="bg-danger d-block rounded box-shadow-2"></span></div>
+                </div>
+            </div>
+            <hr>
+            <div class="togglebutton">
+                <div class="switch">
+                    <span class="text-bold-400">منو فشرده</span>
+                    <div class="float-left">
+                        <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                            <input id="cz-compact-menu" type="checkbox" class="custom-control-input cz-compact-menu">
+                            <label for="cz-compact-menu" class="custom-control-label"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div>
+                <label for="cz-sidebar-width" class="text-bold-400">عرض نوار باریکه</label>
+                <select id="cz-sidebar-width" class="custom-select cz-sidebar-width float-right">
+                    <option value="small">کوچک</option>
+                    <option value="medium" selected="">متوسط</option>
+                    <option value="large">بزرگ</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <!-- BEGIN VENDOR JS-->
+
+
+    <script src="~/AdminTemplate/app-assets/vendors/js/core/jquery-3.3.1.min.js"></script>
+    <script src="~/AdminTemplate/app-assets/js/persian-datepicker.min.js"></script>
+    <script src="~/AdminTemplate/app-assets/vendors/js/core/popper.min.js"></script>
+    <script src="~/AdminTemplate/app-assets/vendors/js/core/bootstrap.min.js"></script>
+    <script src="~/AdminTemplate/app-assets/vendors/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/AdminTemplate/app-assets/vendors/js/prism.min.js"></script>
+    <script src="~/AdminTemplate/app-assets/vendors/js/jquery.matchHeight-min.js"></script>
+    <script src="~/AdminTemplate/app-assets/vendors/js/screenfull.min.js"></script>
+    <script src="~/AdminTemplate/app-assets/vendors/js/pace/pace.min.js"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN CONVEX JS-->
+    <script src="~/AdminTemplate/app-assets/js/app-sidebar.js"></script>
+    <script src="~/AdminTemplate/app-assets/js/notification-sidebar.js"></script>
+    <script src="~/AdminTemplate/app-assets/js/customizer.js"></script>
+    <!-- END CONVEX JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <!-- END PAGE LEVEL JS-->
+
+    @RenderSection("Scripts",false)
+
+    @RenderSection("Modals",false)
+</body>
+
+<!-- Mirrored from pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/demo-1/grids.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Sep 2018 14:54:38 GMT -->
+</html>
